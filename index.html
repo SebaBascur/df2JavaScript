@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; padding: 20px;">
+    <div class="logo">
+        <img src="https://nuevo-alpha.vercel.app/assets/sin-tiitulo-3_mesa-de-trabajo-1-Aq20KwwQWDuM18Wa.webp" style="width: 300px;" alt="">
+    </div>
+
+    <div class="stikers" id="stickers_id" style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 20px;">
+        <div>
+            <img src="/assets/stickers.png" style="width: 250px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
+            <input type="number" id="stickerInput1" style="margin-top: 10px;" placeholder="Cantidad">
+        </div>
+
+        <div>
+            <img src="/assets/stickers.png" style="width: 250px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
+            <input type="number" id="stickerInput2" style="margin-top: 10px;" placeholder="Cantidad">
+        </div>
+
+        <div>
+            <img src="/assets/stickers.png" style="width: 250px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
+            <input type="number" id="stickerInput3" style="margin-top: 10px;" placeholder="Cantidad">
+        </div>
+    </div>
+
+    <button onclick="verificarCondicion()" style="margin-top: 20px;">Ingresar</button>
+    <div id="result" style="margin-top: 20px;"></div>
+
+    <section>
+        <h2>Password</h2>
+
+    </section>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+        <select id="passwordSelect1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+
+        <select id="passwordSelect2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+
+        <select id="passwordSelect3">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+
+        <button onclick="verificarPassword()" style="margin-top: 10px;">Ingresar</button>
+    </div>
+
+    <p id="passwordResult" style="margin-top: 20px;"></p>
+
+    <script>
+        function toggleBorder(element) {
+            element.style.border = element.style.border ? '' : '2px solid red';
+        }
+
+        function verificarCondicion() {
+            var input1 = parseInt(document.getElementById('stickerInput1').value) || 0;
+            var input2 = parseInt(document.getElementById('stickerInput2').value) || 0;
+            var input3 = parseInt(document.getElementById('stickerInput3').value) || 0;
+
+            var totalStickers = input1 + input2 + input3;
+
+            var resultParagraph = document.getElementById('result');
+            if (totalStickers > 10) {
+                resultParagraph.textContent = "Llevas demasiados stickers.";
+            } else {
+                resultParagraph.textContent = "Llevas " + totalStickers + " sticker" + (totalStickers !== 1 ? "s" : "")
+            }
+        }
+
+        function verificarPassword() {
+            var password1 = document.getElementById('passwordSelect1').value;
+            var password2 = document.getElementById('passwordSelect2').value;
+            var password3 = document.getElementById('passwordSelect3').value;
+
+            var resultParagraph = document.getElementById('passwordResult');
+
+            if (password1 === '9' && password2 === '1' && password3 === '1') {
+                resultParagraph.textContent = "Password 1 correcto";
+            } else if (password1 === '7' && password2 === '1' && password3 === '4') {
+                resultParagraph.textContent = "Password 2 correcto";
+            } else {
+                resultParagraph.textContent = "Password incorrecto";
+            }
+        }
+    </script>
+</body>
+
+</html>
