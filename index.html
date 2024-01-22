@@ -15,17 +15,17 @@
     <div class="stikers" id="stickers_id" style="display: flex; justify-content: space-evenly; align-items: center; margin-top: 20px;">
         <div>
             <img src="/assets/stickers.png" style="width: 250px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
-            <input type="number" id="stickerInput1" style="margin-top: 10px;" placeholder="Cantidad">
+            <input type="number" id="stickerInput1" style="margin-top: 10px;" placeholder="Cantidad" oninput="validarInputNumerico(this)">
         </div>
 
         <div>
             <img src="/assets/icono_Mesa de trabajo 1.png" style="width: 250px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
-            <input type="number" id="stickerInput2" style="margin-top: 10px;" placeholder="Cantidad">
+            <input type="number" id="stickerInput2" style="margin-top: 10px;" placeholder="Cantidad" oninput="validarInputNumerico(this)">
         </div>
 
         <div>
-            <img src="/assets/e5f0de6f7d0762cd08725ea9dfd7c487.png" style="width: 200px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
-            <input type="number" id="stickerInput3" style="margin-top: 10px;" placeholder="Cantidad">
+            <img src="/assets/e5f0de6f7d0762cd08725ea9dfd7c487.png" style="width: 250px; cursor: pointer; border: none;" onclick="toggleBorder(this)" alt="">
+            <input type="number" id="stickerInput3" style="margin-top: 10px;" placeholder="Cantidad" oninput="validarInputNumerico(this)">
         </div>
     </div>
 
@@ -34,7 +34,6 @@
 
     <section>
         <h2>Password</h2>
-
     </section>
     <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
         <select id="passwordSelect1">
@@ -81,6 +80,11 @@
     <script>
         function toggleBorder(element) {
             element.style.border = element.style.border ? '' : '2px solid red';
+        }
+
+        function validarInputNumerico(input) {
+            // Asegurar que el valor no sea negativo
+            input.value = Math.max(0, parseInt(input.value)) || 0;
         }
 
         function verificarCondicion() {
